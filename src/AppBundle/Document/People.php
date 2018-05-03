@@ -10,6 +10,8 @@ namespace AppBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
+//文件夹名字只能是Document，否则不能自动生成getter和setter
+//下面三行很重要，没了也不能生成getter和setter
 /**
  * @MongoDB\Document
  */

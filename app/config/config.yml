@@ -7,7 +7,6 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    mongodb_server: "mongodb://localhost:27017"
 
 framework:
     #esi: ~
