@@ -88,7 +88,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("{id}/delete")
+     * @Route("{id}/delete", name="delete")
      */
     public function deleteAction(People $people)
     {

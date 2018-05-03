@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<a href="{{ path('create') }}">增加</a>
 <table>
     <tbody>
     {% for person in people %}
@@ -8,6 +9,19 @@
             <td>{{ person.name }}</td>
             <td>{{ person.birthday | date_to_string }}</td>
             <td>{{ person.marriage }}</td>
+            <td>
+                <div>
+                    <a href="{{ path('show', {id: person.id}) }}">
+                        查看
+                    </a>
+                    <a href="{{ path('update', {id: person.id}) }}">
+                        修改
+                    </a>
+                    <a href="{{ path('delete', {id: person.id}) }}">
+                        删除
+                    </a>
+                </div>
+            </td>
     {% endfor %}
     </tbody>
 </table>
