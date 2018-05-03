@@ -10,6 +10,8 @@ namespace AppBundle\Form;
 
 use AppBundle\Document\People;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 
@@ -19,6 +21,17 @@ class PeopleType extends AbstractType
     {
         $builder
             ->add('name', null)
+            ->add('birthday', DateType::class, array(
+                'widget' => 'single_text',
+            ))
+            ->add('marriage', ChoiceType::class, array(
+                'choices' => array(
+                    '未婚' => '未婚',
+                    '已婚' => '已婚',
+                    '离婚' => '离异',
+                    '丧偶' => '丧偶',
+                )
+            ))
         ;
     }
 

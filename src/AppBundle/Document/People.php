@@ -28,6 +28,16 @@ class People
     private $name;
 
     /**
+     * @MongoDB\Field(type="date")
+     */
+    private $birthday;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $marriage;
+
+    /**
      * Get id
      *
      * @return id $id
@@ -57,5 +67,49 @@ class People
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set birthday
+     *
+     * @param date $birthday
+     * @return $this
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+        return $this;
+    }
+
+    /**
+     * Get birthday
+     *
+     * @return date $birthday
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * Set marriage
+     *
+     * @param string $marriage
+     * @return $this
+     */
+    public function setMarriage($marriage)
+    {
+        $this->marriage = $marriage;
+        return $this;
+    }
+
+    /**
+     * Get marriage
+     *
+     * @return string $marriage
+     */
+    public function getMarriage()
+    {
+        return $this->marriage;
     }
 }
