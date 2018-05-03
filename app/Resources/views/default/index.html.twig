@@ -1,5 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-index
+<table>
+    <tbody>
+    {% for person in people %}
+        <tr>
+            <td>{{ person.name }}</td>
+            <td>{{ person.birthday | date_to_string }}</td>
+            <td>{{ person.marriage }}</td>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

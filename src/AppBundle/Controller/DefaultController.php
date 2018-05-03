@@ -13,6 +13,21 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
+     * @Route("/", name="show_all_search")
+     */
+    public function indexAction()
+    {
+        $people = $this->get('doctrine_mongodb')
+            ->getManager()
+            ->createQueryBuilder('AppBundle:People')
+            ->sort('name', 'ASC')
+            ->getQuery()
+            ->execute();
+
+        return $this->render('default/index.html.twig', ['people' => $people]);
+    }
+
+    /**
      * @Route("/create", name="create")
      */
     public function createAction(Request $request)
