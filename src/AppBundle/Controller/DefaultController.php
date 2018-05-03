@@ -35,6 +35,12 @@ class DefaultController extends Controller
         $form = $this->createForm(PeopleType::class, $people);
         $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->get('doctrine_mongodb')->getManager()->flush();
+
+            return $this->redirectToRoute('update', ['id' => $people->getId()]);
+        }
+
         return $this->render('default/update.html.twig', [
             'people' => $people,
             'form' => $form->createView(),
