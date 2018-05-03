@@ -13,6 +13,31 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
+     * @Route("/create", name="create")
+     */
+    public function createAction(Request $request)
+    {
+        $people = new People();
+
+        $form = $this->createForm(PeopleType::class, $people);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->get('doctrine_mongodb')->getManager();
+            $em->persist($people);
+            $em->flush();
+
+            return $this->redirectToRoute('create');
+        }
+
+        return $this->render('default/create.html.twig', array(
+            'people' => $people,
+            'form' =>$form->createView(),
+        ));
+    }
+
+    /**
      * @Route("/{id}", name="show")
      */
     public function showAction(People $people)
@@ -45,5 +70,17 @@ class DefaultController extends Controller
             'people' => $people,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("{id}/delete")
+     */
+    public function deleteAction(People $people)
+    {
+        $em = $this->get('doctrine_mongodb')->getManager();
+        $em->remove($people);
+        $em->flush();
+
+        return $this->redirectToRoute('create');
     }
 }
