@@ -5,6 +5,7 @@ namespace AppBundle\Repository;
 use Doctrine\ODM\MongoDB\DocumentRepository;
 use Doctrine\ODM\MongoDB\MongoDBException;
 
+
 /**
  * PeopleRepository
  *
@@ -13,14 +14,14 @@ use Doctrine\ODM\MongoDB\MongoDBException;
  */
 class PeopleRepository extends DocumentRepository
 {
-    public function searchData($data)
+    public function findMatch($data)
     {
         $qb = $this->createQueryBuilder();
         if($data['name']) {
-            $qb = field('name')->equals($data['name']);
+            $qb = $qb->field('name')->equals($data['name']);
         }
         if($data['marriage'] != '不限') {
-            $qb = field('marriage')->equals($data['marriage']);
+            $qb = $qb->field('marriage')->equals($data['marriage']);
         }
         return $qb->getQuery()->execute();
     }

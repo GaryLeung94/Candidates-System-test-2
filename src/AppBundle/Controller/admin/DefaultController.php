@@ -35,18 +35,12 @@ class DefaultController extends Controller
         $form = $this->createForm(ResultType::class);
         $form->handleRequest($request);
 
+        $repository = $this->get('doctrine_mongodb')->getRepository(People::class);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
 
-            $people = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:People')
-                ->createQueryBuilder();
-            if($data['name']) {
-                $people = $people->field('name')->equals($data['name']);
-            }
-            if($data['marriage'] != '不限') {
-                $people = $people->field('marriage')->equals($data['marriage']);
-            }
-            $people = $people->getQuery()->execute();
+            $people = $repository->findMatch($data);
 
             return $this->render('admin/index.html.twig', [
                 'form' => $form->createView(),
@@ -54,12 +48,7 @@ class DefaultController extends Controller
             ]);
 
         } else {
-            $people = $this->get('doctrine_mongodb')
-                ->getManager()
-                ->createQueryBuilder('AppBundle:People')
-                ->sort('name', 'ASC')
-                ->getQuery()
-                ->execute();
+            $people = $repository->findAll();
         }
 
         return $this->render('admin/index.html.twig', [
