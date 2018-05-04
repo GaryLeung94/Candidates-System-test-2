@@ -13,7 +13,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 //文件夹名字只能是Document，否则不能自动生成getter和setter
 //下面三行很重要，没了也不能生成getter和setter
 /**
- * @MongoDB\Document
+ * @MongoDB\Document(repositoryClass="AppBundle\Repository\PeopleRepository")
  */
 class People
 {
@@ -28,6 +28,21 @@ class People
     private $name;
 
     /**
+     * @MongoDB\Field(type="string")
+     */
+    private $sex;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $ethnic;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $city;
+
+    /**
      * @MongoDB\Field(type="date")
      */
     private $birthday;
@@ -35,7 +50,307 @@ class People
     /**
      * @MongoDB\Field(type="string")
      */
+    private $mobile;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $address;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $workYear;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
     private $marriage;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $child;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $plan;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $eduDate1a;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $eduDate1b;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $type1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $education1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $school1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $major1;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $eduDate2a;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $eduDate2b;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $type2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $education2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $school2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $major2;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $eduDate3a;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $eduDate3b;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $type3;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $education3;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $school3;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $major3;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $wdate1a;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $wdate1b;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $wtype1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $company1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $title1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $status1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $salary1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $prove1;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $wdate2a;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $wdate2b;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $wtype2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $company2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $title2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $status2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $salary2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $prove2;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $wdate3a;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    private $wdate3b;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $wtype3;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $company3;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $title3;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $status3;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $salary3;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $prove3;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $family1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $fname1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $fwork1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $fmobile1;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $family2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $fname2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $fwork2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $fmobile2;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $function;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $employ_type;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $position;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $salary_requirement;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    private $availability;
 
     /**
      * Get id
@@ -67,5 +382,49 @@ class People
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set birthday
+     *
+     * @param date $birthday
+     * @return $this
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+        return $this;
+    }
+
+    /**
+     * Get birthday
+     *
+     * @return date $birthday
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * Set marriage
+     *
+     * @param string $marriage
+     * @return $this
+     */
+    public function setMarriage($marriage)
+    {
+        $this->marriage = $marriage;
+        return $this;
+    }
+
+    /**
+     * Get marriage
+     *
+     * @return string $marriage
+     */
+    public function getMarriage()
+    {
+        return $this->marriage;
     }
 }
