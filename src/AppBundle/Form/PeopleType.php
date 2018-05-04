@@ -28,7 +28,7 @@ class PeopleType extends AbstractType
                 'choices' => array(
                     '未婚' => '未婚',
                     '已婚' => '已婚',
-                    '离婚' => '离异',
+                    '离婚' => '离婚',
                     '丧偶' => '丧偶',
                 )
             ))
