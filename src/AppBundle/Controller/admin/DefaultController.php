@@ -11,7 +11,7 @@ namespace AppBundle\Controller\admin;
 use AppBundle\AppBundle;
 use AppBundle\Document\People;
 use AppBundle\Form\PeopleType;
-use AppBundle\Form\SearchType;
+use AppBundle\Form\ResultType;
 use Doctrine\ODM\MongoDB\DocumentRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -32,18 +32,7 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
-        $form = $this->createFormBuilder()
-            ->add('name', TextType::class, array('required' => false))
-            ->add('marriage', ChoiceType::class, array(
-                'choices' => array(
-                    '不限' => '不限',
-                    '未婚' => '未婚',
-                    '已婚' => '已婚',
-                    '离婚' => '离异',
-                    '丧偶' => '丧偶',
-                )
-            ))
-            ->getForm();
+        $form = $this->createForm(ResultType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
