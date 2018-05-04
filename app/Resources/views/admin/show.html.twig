@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <a href="{{ path('logout') }}">登出</a>
+
     id: {{ people.id }}</br>
     name: {{ people.name }}</br>
     birthday: {{ people.birthday | date_to_string }}</br>
