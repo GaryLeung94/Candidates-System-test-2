@@ -1,6 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>首页</h1>
-    <a href="{{ path('login') }}">后台入口</a>
+    {#<h1>应聘人员资料管理系统</h1>#}
+    {#<a href="{{ path('guest_create') }}">应聘者登记</a>#}
+    {#<a href="{{ path('login') }}">后台入口</a>#}
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">应聘人员资料管理系统</h1>
+            <a class="btn btn-primary btn-lg" href="{{ path('guest_create') }}" role="button">应聘者登记</a>
+            <a class="btn btn-primary btn-lg" href="{{ path('login') }}" role="button">后台入口</a>
+        </div>
+    </div>
 {% endblock %}

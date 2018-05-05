@@ -3,10 +3,11 @@
 {% form_theme form 'layout/bootstrap_4_layout.html.twig' %}
 
 {% block body %}
-    <a href="{{ path('logout') }}">登出</a>
+    {{ include('admin/_header.html.twig') }}
 
-    <h1>应聘人员资料管理系统 - 修改信息</h1>
-
-    {{ include('default/_form.html.twig') }}
+    <div class="container">
+        <h1>修改信息</h1>
+        {{ include('form/_form.html.twig') }}
+    </div>
 
 {% endblock %}

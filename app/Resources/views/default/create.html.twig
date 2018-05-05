@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'layout/bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">西洋汇应聘人员资料管理系统</a>
+    </header>
+
+    <div class="container">
+        <div class="card my-3">
+            <div class="card-body">
+                您的到场时间：{{ now_time }}<br/>
+                为了更科学的进行结构化面试，我们全过程采用无纸化面试，请按照以下指引填写完善您的资料。
+            </div>
+        </div>
+
+    {{ include('form/_form.html.twig') }}
+    </div>
+{% endblock %}

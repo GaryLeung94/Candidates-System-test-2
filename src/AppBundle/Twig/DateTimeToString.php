@@ -20,6 +20,8 @@ class DateTimeToString extends \Twig_Extension
 
     public function dtsFilter($date_time)
     {
-        return $date_time->format('Y-m-d');
+        if($date_time){
+            return $date_time->format('Y-m-d');
+        }
     }
 }

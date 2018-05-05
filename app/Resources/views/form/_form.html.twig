@@ -1,0 +1,146 @@
+{{ form_start(form) }}
+
+<div class = "form-row">
+    <div class="col-md-3 mb-3">{{ form_label(form.name, '中文名') }}{{ form_widget(form.name) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.sex, '性别') }}{{ form_widget(form.sex) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.ethnic, '民族') }}{{ form_widget(form.ethnic) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.city, '籍贯') }}{{ form_widget(form.city) }}</div>
+</div>
+
+<div class = "form-row">
+    <div class="col-md-3 mb-3">{{ form_label(form.birthday, '生日') }}{{ form_widget(form.birthday) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.mobile, '电话') }}{{ form_widget(form.mobile) }}</div>
+    <div class="col-md-6 mb-3">{{ form_label(form.address, '地址') }}{{ form_widget(form.address) }}</div>
+</div>
+
+<div class = "form-row">
+    <div class="col-md-3 mb-3">{{ form_label(form.workYear, '工作年限') }}{{ form_widget(form.workYear) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.marriage, '婚姻状况') }}{{ form_widget(form.marriage) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.child, '生育状况') }}{{ form_widget(form.child) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.plan, '婚育计划') }}{{ form_widget(form.plan) }}</div>
+</div>
+
+<div class="my-3">
+    <h3>教育经历 <small><small>从最高起填写，可填至中学</small></small></h3>
+</div>
+
+<div class="form-row border-bottom">
+    <div class="col-md-4 mb-3"><b>教育时间</b></div>
+    <div class="col-md-1 mb-3"><b>性质</b></div>
+    <div class="col-md-1 mb-3"><b>学历</b></div>
+    <div class="col-md-3 mb-3"><b>学校名称</b></div>
+    <div class="col-md-3 mb-3"><b>专业</b></div>
+</div>
+<div class = "form-row">
+    <div class="col-md-2 mb-3">{{ form_label(form.eduDate1a, ' ') }}{{ form_widget(form.eduDate1a) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.eduDate1b, ' ') }}{{ form_widget(form.eduDate1b) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.type1, ' ') }}{{ form_widget(form.type1) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.education1, ' ') }}{{ form_widget(form.education1) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.school1, ' ') }}{{ form_widget(form.school1) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.major1, ' ') }}{{ form_widget(form.major1) }}</div>
+</div>
+
+<div class = "form-row">
+    <div class="col-md-2 mb-3">{{ form_label(form.eduDate2a, ' ') }}{{ form_widget(form.eduDate2a) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.eduDate2b, ' ') }}{{ form_widget(form.eduDate2b) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.type2, ' ') }}{{ form_widget(form.type2) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.education2, ' ') }}{{ form_widget(form.education2) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.school2, ' ') }}{{ form_widget(form.school2) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.major2, ' ') }}{{ form_widget(form.major2) }}</div>
+</div>
+
+<div class = "form-row">
+    <div class="col-md-2 mb-3">{{ form_label(form.eduDate3a, ' ') }}{{ form_widget(form.eduDate3a) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.eduDate3b, ' ') }}{{ form_widget(form.eduDate3b) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.type3, ' ') }}{{ form_widget(form.type3) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.education3, ' ') }}{{ form_widget(form.education3) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.school3, ' ') }}{{ form_widget(form.school3) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.major3, ' ') }}{{ form_widget(form.major3) }}</div>
+</div>
+
+<div class="my-3">
+    <h3>工作/实习经历<small><small>从最近起填写</small></small></h3>
+</div>
+
+<div class="form-row border-bottom">
+    <div class="col-md-4 mb-3"><b>工作时间</b></div>
+    <div class="col-md-1 mb-3"><b>性质</b></div>
+    <div class="col-md-2 mb-3"><b>单位名称</b></div>
+    <div class="col-md-2 mb-3"><b>部门/职位</b></div>
+    <div class="col-md-1 mb-3"><b>状态</b></div>
+    <div class="col-md-1 mb-3"><b>薪资范围</b></div>
+    <div class="col-md-1 mb-3"><small><b>证明人及电话</b></small></div>
+</div>
+<div class = "form-row">
+    <div class="col-md-2 mb-3">{{ form_label(form.wdate1a, ' ') }}{{ form_widget(form.wdate1a) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.wdate1b, ' ') }}{{ form_widget(form.wdate1b) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.wtype1, ' ') }}{{ form_widget(form.wtype1) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.company1, ' ') }}{{ form_widget(form.company1) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.title1, ' ') }}{{ form_widget(form.title1) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.status1, ' ') }}{{ form_widget(form.status1) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.salary1, ' ') }}{{ form_widget(form.salary1) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.prove1, ' ') }}{{ form_widget(form.prove1) }}</div>
+</div>
+
+<div class = "form-row">
+    <div class="col-md-2 mb-3">{{ form_label(form.wdate2a, ' ') }}{{ form_widget(form.wdate2a) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.wdate2b, ' ') }}{{ form_widget(form.wdate2b) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.wtype2, ' ') }}{{ form_widget(form.wtype2) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.company2, ' ') }}{{ form_widget(form.company2) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.title2, ' ') }}{{ form_widget(form.title2) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.status2, ' ') }}{{ form_widget(form.status2) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.salary2, ' ') }}{{ form_widget(form.salary2) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.prove2, ' ') }}{{ form_widget(form.prove2) }}</div>
+</div>
+
+<div class = "form-row">
+    <div class="col-md-2 mb-3">{{ form_label(form.wdate3a, ' ') }}{{ form_widget(form.wdate3a) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.wdate3b, ' ') }}{{ form_widget(form.wdate3b) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.wtype3, ' ') }}{{ form_widget(form.wtype3) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.company3, ' ') }}{{ form_widget(form.company3) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.title3, ' ') }}{{ form_widget(form.title3) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.status3, ' ') }}{{ form_widget(form.status3) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.salary3, ' ') }}{{ form_widget(form.salary3) }}</div>
+    <div class="col-md-1 mb-3">{{ form_label(form.prove3, ' ') }}{{ form_widget(form.prove3) }}</div>
+</div>
+
+<div class="my-3">
+    <h3>家庭背景</h3>
+</div>
+
+<div class="form-row border-bottom">
+    <div class="col-md-3 mb-3"><b>关系</b></div>
+    <div class="col-md-3 mb-3"><b>姓名</b></div>
+    <div class="col-md-4 mb-3"><b>单位及职业</b></div>
+    <div class="col-md-2 mb-3"><b>联系电话</b></div>
+</div>
+<div class = "form-row">
+    <div class="col-md-3 mb-3">{{ form_label(form.family1, ' ') }}{{ form_widget(form.family1) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.fname1, ' ') }}{{ form_widget(form.fname1) }}</div>
+    <div class="col-md-4 mb-3">{{ form_label(form.fwork1, ' ') }}{{ form_widget(form.fwork1) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.fmobile1, ' ') }}{{ form_widget(form.fmobile1) }}</div>
+</div>
+
+<div class = "form-row">
+    <div class="col-md-3 mb-3">{{ form_label(form.family2, ' ') }}{{ form_widget(form.family2) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.fname2, ' ') }}{{ form_widget(form.fname2) }}</div>
+    <div class="col-md-4 mb-3">{{ form_label(form.fwork2, ' ') }}{{ form_widget(form.fwork2) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.fmobile2, ' ') }}{{ form_widget(form.fmobile2) }}</div>
+</div>
+
+<div class="my-3">
+    <h3>应聘情况</h3>
+</div>
+
+<div class = "form-row">
+    <div class="col-md-3 mb-3">{{ form_label(form.function, '应聘职能') }}{{ form_widget(form.function) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.employ_type, '应聘性质') }}{{ form_widget(form.employ_type) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.position, '自我定位') }}{{ form_widget(form.position) }}</div>
+    <div class="col-md-2 mb-3">{{ form_label(form.salary_requirement, '薪资需求') }}{{ form_widget(form.salary_requirement) }}</div>
+    <div class="col-md-3 mb-3">{{ form_label(form.availability, '可到岗时间') }}{{ form_widget(form.availability) }}</div>
+</div>
+
+
+<button class="btn btn-outline-success my-3" type="submit">提交</button>
+
+{{ form_end(form) }}

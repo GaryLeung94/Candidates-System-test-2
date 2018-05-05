@@ -1,10 +1,171 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <a href="{{ path('logout') }}">登出</a>
+    {{ include('admin/_header.html.twig') }}
 
-    id: {{ people.id }}</br>
-    name: {{ people.name }}</br>
-    birthday: {{ people.birthday | date_to_string }}</br>
-    marriage: {{ people.marriage }}
+    {#id: {{ people.id }}</br>#}
+    {#name: {{ people.name }}</br>#}
+    {#birthday: {{ people.birthday | date_to_string }}</br>#}
+    {#marriage: {{ people.marriage }}#}
+
+    <div class="container">
+        <table class="table table-bordered my-3">
+            <thead>
+            <tr>
+                <th scope="col" colspan="4">基本信息</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>中文名：{{ people.name }}</td>
+                <td>性别：{{ people.sex }}</td>
+                <td>民族：{{ people.ethnic }}</td>
+                <td>籍贯：{{ people.city }}</td>
+            </tr>
+            <tr>
+                <td>生日：{{ people.birthday | date_to_string }}</td>
+                <td>电话：{{ people.mobile }}</td>
+                <td colspan="2">地址：{{ people.address}}</td>
+            </tr>
+            <tr>
+                <td>工作年限：{{ people.workYear }}</td>
+                <td>婚姻状况：{{ people.marriage }}</td>
+                <td>生育计划：{{ people.child }}</td>
+                <td>婚育计划：{{ people.plan }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-bordered my-3">
+            <thead>
+            <tr>
+                <th scope="col" colspan="5">教育经历</th>
+            </tr>
+            <tr>
+                <th scope="col">时间</th>
+                <th scope="col">性质</th>
+                <th scope="col">学历</th>
+                <th scope="col">学校名称</th>
+                <th scope="col">专业</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ people.eduDate1a | date_to_string }} ~ {{ people.eduDate1b | date_to_string  }}</td>
+                <td>{{ people.type1 }}</td>
+                <td>{{ people.education1 }}</td>
+                <td>{{ people.school1 }}</td>
+                <td>{{ people.major1 }}</td>
+            </tr>
+            <tr>
+                <td>{{ people.eduDate2a | date_to_string }} ~ {{ people.eduDate2b | date_to_string  }}</td>
+                <td>{{ people.type2 }}</td>
+                <td>{{ people.education2 }}</td>
+                <td>{{ people.school2 }}</td>
+                <td>{{ people.major2 }}</td>
+            </tr>
+            <tr>
+                <td>{{ people.eduDate3a | date_to_string }} ~ {{ people.eduDate3b | date_to_string  }}</td>
+                <td>{{ people.type3 }}</td>
+                <td>{{ people.education3 }}</td>
+                <td>{{ people.school3 }}</td>
+                <td>{{ people.major3 }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-bordered my-3">
+            <thead>
+            <tr>
+                <th scope="col" colspan="7">工作/实习经历</th>
+            </tr>
+            <tr>
+                <th scope="col">时间</th>
+                <th scope="col">性质</th>
+                <th scope="col">单位名称</th>
+                <th scope="col">部门/职位</th>
+                <th scope="col">状态</th>
+                <th scope="col">薪资范围</th>
+                <th scope="col">证明人及电话</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ people.wdate1a | date_to_string }} ~ {{ people.wdate1b | date_to_string  }}</td>
+                <td>{{ people.wtype1 }}</td>
+                <td>{{ people.company1 }}</td>
+                <td>{{ people.title1 }}</td>
+                <td>{{ people.status1 }}</td>
+                <td>{{ people.salary1 }}</td>
+                <td>{{ people.prove1 }}</td>
+            </tr>
+            <tr>
+                <td>{{ people.wdate2a | date_to_string }} ~ {{ people.wdate2b | date_to_string  }}</td>
+                <td>{{ people.wtype2 }}</td>
+                <td>{{ people.company2 }}</td>
+                <td>{{ people.title2 }}</td>
+                <td>{{ people.status2 }}</td>
+                <td>{{ people.salary2 }}</td>
+                <td>{{ people.prove2 }}</td>
+            </tr>
+            <tr>
+                <td>{{ people.wdate3a | date_to_string }} ~ {{ people.wdate3b | date_to_string  }}</td>
+                <td>{{ people.wtype3 }}</td>
+                <td>{{ people.company3 }}</td>
+                <td>{{ people.title3 }}</td>
+                <td>{{ people.status3 }}</td>
+                <td>{{ people.salary3 }}</td>
+                <td>{{ people.prove3 }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-bordered my-3">
+            <thead>
+            <tr>
+                <th scope="col" colspan="4">家庭背景</th>
+            </tr>
+            <tr>
+                <th scope="col">关系</th>
+                <th scope="col">姓名</th>
+                <th scope="col">单位及职业</th>
+                <th scope="col">联系电话</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ people.family1 }}</td>
+                <td>{{ people.fname1 }}</td>
+                <td>{{ people.fwork1 }}</td>
+                <td>{{ people.fmobile1 }}</td>
+            </tr>
+            <tr>
+                <td>{{ people.family2 }}</td>
+                <td>{{ people.fname2 }}</td>
+                <td>{{ people.fwork2 }}</td>
+                <td>{{ people.fmobile2 }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-bordered my-3">
+            <thead>
+            <tr>
+                <th scope="col" colspan="3">应聘情况</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="2">应聘职能：{{ people.function }}</td>
+                <td>应聘性质：{{ people.employType }}</td>
+            </tr>
+            <tr>
+                <td>自我定位：{{ people.position }}</td>
+                <td>薪资需求：{{ people.salaryRequirement }}</td>
+                <td>可到岗时间：{{ people.availability }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
 {% endblock %}

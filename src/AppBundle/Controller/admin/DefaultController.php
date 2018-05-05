@@ -45,6 +45,7 @@ class DefaultController extends Controller
             return $this->render('admin/index.html.twig', [
                 'form' => $form->createView(),
                 'people' => $people,
+                'people_count' => count($people),
             ]);
 
         } else {
@@ -54,6 +55,7 @@ class DefaultController extends Controller
         return $this->render('admin/index.html.twig', [
             'form' => $form->createView(),
             'people' => $people,
+            'people_count' => count($people),
         ]);
     }
 
@@ -73,7 +75,7 @@ class DefaultController extends Controller
             $em->persist($people);
             $em->flush();
 
-            return $this->redirectToRoute('create');
+            return $this->redirectToRoute('admin_homepage');
         }
 
         return $this->render('admin/create.html.twig', array(
@@ -108,7 +110,7 @@ class DefaultController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->get('doctrine_mongodb')->getManager()->flush();
 
-            return $this->redirectToRoute('update', ['id' => $people->getId()]);
+            return $this->redirectToRoute('admin_homepage');
         }
 
         return $this->render('admin/update.html.twig', [
@@ -126,7 +128,7 @@ class DefaultController extends Controller
         $em->remove($people);
         $em->flush();
 
-        return $this->redirectToRoute('create');
+        return $this->redirectToRoute('admin_homepage');
     }
 
 }

@@ -76,7 +76,6 @@ class ResultType extends AbstractType
                     '一个月以上' => '一个月以上',
                 ),
             ))
-
         ;
     }
 }
