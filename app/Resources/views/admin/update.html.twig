@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme form 'layout/bootstrap_4_layout.html.twig' %}
+
 {% block body %}
     <a href="{{ path('logout') }}">登出</a>
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
+    <h1>应聘人员资料管理系统 - 修改信息</h1>
 
-    <button type="submit">修改</button>
+    {{ include('default/_form.html.twig') }}
 
-    {{ form_end(form) }}
 {% endblock %}
