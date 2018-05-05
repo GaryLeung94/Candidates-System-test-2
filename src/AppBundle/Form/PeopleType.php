@@ -256,6 +256,7 @@ class PeopleType extends AbstractType
                     '全职' => '全职',
                     '兼职' => '兼职',
                 ),
+                'required' => false,
             ))
             ->add('position', ChoiceType::class, array(
                 'choices' => array(

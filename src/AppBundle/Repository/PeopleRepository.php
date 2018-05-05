@@ -20,9 +20,31 @@ class PeopleRepository extends DocumentRepository
         if($data['name']) {
             $qb = $qb->field('name')->equals($data['name']);
         }
-        if($data['marriage'] != '不限') {
-            $qb = $qb->field('marriage')->equals($data['marriage']);
+
+        if($data['function'] != '不限') {
+            $qb = $qb->field('function')->equals($data['function']);
         }
+
+        if($data['education1'] != '不限') {
+            $qb = $qb->field('education1')->equals($data['education1']);
+        }
+
+        if($data['status1'] != '不限') {
+            $qb = $qb->field('status1')->equals($data['status1']);
+        }
+
+        if($data['sex'] != '不限') {
+            $qb = $qb->field('sex')->equals($data['sex']);
+        }
+
+        if($data['workYear']) {
+            $qb = $qb->field('workYear')->equals($data['workYear']);
+        }
+
+        if($data['availability'] != '不限') {
+            $qb = $qb->field('availability')->equals($data['availability']);
+        }
+
         return $qb->getQuery()->execute();
     }
 
