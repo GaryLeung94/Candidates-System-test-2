@@ -37,6 +37,10 @@ class PeopleRepository extends DocumentRepository
             $qb = $qb->field('sex')->equals($data['sex']);
         }
 
+        if($data['employ_type'] != '不限') {
+            $qb = $qb->field('employ_type')->equals($data['employ_type']);
+        }
+
         if($data['workYear']) {
             $qb = $qb->field('workYear')->equals($data['workYear']);
         }

@@ -58,6 +58,13 @@ class ResultType extends AbstractType
                     '女' => '女'
                 ),
             ))
+            ->add('employ_type', ChoiceType::class, array(
+                'choices' => array(
+                    '不限' => '不限',
+                    '全职' => '全职',
+                    '兼职' => '兼职',
+                ),
+            ))
             ->add('workYear', null, array('required' => false))
             ->add('availability', ChoiceType::class, array(
                 'choices' => array(
