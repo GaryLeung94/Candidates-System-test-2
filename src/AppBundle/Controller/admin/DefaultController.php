@@ -27,9 +27,10 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="admin_homepage")
+     * @Route("/", defaults={"page": "1", "_format"="html"}, name="admin_homepage")
+     * @Route("/page/{page}", defaults={"_format"="html"}, requirements={"page": "[1-9]\d*"}, name="admin_homepage_paginated")
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, $page, $_format)
     {
 
         $form = $this->createForm(ResultType::class);
@@ -40,19 +41,19 @@ class DefaultController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
 
-            $people = $repository->findMatch($data);
+            $people = $repository->findMatchPaging($data, $page);
 
-            return $this->render('admin/index.html.twig', [
+            return $this->render('admin/index.' . $_format . '.twig', [
                 'form' => $form->createView(),
                 'people' => $people,
                 'people_count' => count($people),
             ]);
 
         } else {
-            $people = $repository->findAll();
+            $people = $repository->findAllPaging($page);
         }
 
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/index.' . $_format . '.twig', [
             'form' => $form->createView(),
             'people' => $people,
             'people_count' => count($people),

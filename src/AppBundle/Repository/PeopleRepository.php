@@ -4,6 +4,8 @@ namespace AppBundle\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
 use Doctrine\ODM\MongoDB\MongoDBException;
+use Pagerfanta\Adapter\DoctrineODMMongoDBAdapter;
+use Pagerfanta\Pagerfanta;
 
 
 /**
@@ -14,7 +16,7 @@ use Doctrine\ODM\MongoDB\MongoDBException;
  */
 class PeopleRepository extends DocumentRepository
 {
-    public function findMatch($data)
+    public function findMatchPaging($data, $page = 1)
     {
         $qb = $this->createQueryBuilder();
         if($data['name']) {
@@ -49,8 +51,23 @@ class PeopleRepository extends DocumentRepository
             $qb = $qb->field('availability')->equals($data['availability']);
         }
 
-        return $qb->getQuery()->execute();
+        return $this->createPaginator($qb, $page);
     }
 
+    public function findAllPaging($page)
+    {
+        $qb = $this->createQueryBuilder();
 
+        return $this->createPaginator($qb, $page);
+    }
+
+    private function createPaginator($qb, $page)
+    {
+        $paginator = new Pagerfanta(new DoctrineODMMongoDBAdapter($qb));
+        $paginator->setMaxPerPage(10);
+        $paginator->setCurrentPage($page);
+
+        return $paginator;
+
+    }
 }
