@@ -12,6 +12,7 @@ use AppBundle\Document\People;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 
@@ -32,9 +33,12 @@ class PeopleType extends AbstractType
             ->add('birthday', DateType::class, array(
                 'widget' => 'single_text',
             ))
-            ->add('mobile', null, array('required' => false))
+            ->add('mobile', NumberType::class, array(
+                'required' => false,
+                'invalid_message' => '请输入有效电话号码'
+            ))
             ->add('address', null, array('required' => false))
-            ->add('workYear', null)
+            ->add('workYear', NumberType::class, array('invalid_message' => '请输入数字'))
             ->add('marriage', ChoiceType::class, array(
                 'choices' => array(
                     '未婚' => '未婚',
@@ -232,11 +236,17 @@ class PeopleType extends AbstractType
             ->add('family1', null, array('required' => false))
             ->add('fname1', null, array('required' => false))
             ->add('fwork1', null, array('required' => false))
-            ->add('fmobile1', null, array('required' => false))
+            ->add('fmobile1', NumberType::class, array(
+                'required' => false,
+                'invalid_message' => '请输入有效电话号码'
+            ))
             ->add('family2', null, array('required' => false))
             ->add('fname2', null, array('required' => false))
             ->add('fwork2', null, array('required' => false))
-            ->add('fmobile2', null, array('required' => false))
+            ->add('fmobile2', NumberType::class, array(
+                'required' => false,
+                'invalid_message' => '请输入有效电话号码'
+            ))
             ->add('function', ChoiceType::class, array(
                 'choices' => array(
                     '技术部' => '',
@@ -265,7 +275,10 @@ class PeopleType extends AbstractType
                     '高级工程师' => '高级工程师',
                 ),
             ))
-            ->add('salary_requirement', null, array('required' => false))
+            ->add('salary_requirement', NumberType::class, array(
+                'required' => false,
+                'invalid_message' => '请输入数字'
+            ))
             ->add('availability', ChoiceType::class, array(
                 'choices' => array(
                     '随时' => '随时',
